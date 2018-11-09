@@ -1,13 +1,14 @@
 package com.zuk.system.service;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 
 public interface UserService {
 
 	void init();
 
-	JSONPObject login(JSONPObject reqMsg);
+	JsonObject login(JSONObject reqMsg);
 
-	JSONPObject logout(JSONPObject reqMsg);
+	JsonObject logout(JSONObject reqMsg);
 
 }

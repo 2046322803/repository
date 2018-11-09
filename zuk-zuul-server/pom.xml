@@ -6,19 +6,15 @@
 		<artifactId>zuk-pom</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<groupId>com.zuk.system</groupId>
-	<artifactId>zuk-system-server</artifactId>
+	<groupId>com.zuk.zuul</groupId>
+	<artifactId>zuk-zuul-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zuk-system-server</name>
-	<description>zuk-system project</description>
+	<name>zuk-zuul-server</name>
+	<description>zuk-zuul-server project</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -29,21 +25,8 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.zuk.core</groupId>
-			<artifactId>zuk-core-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 </project>

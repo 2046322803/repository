@@ -11,4 +11,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>zuk-core-service</name>
 	<description>zuk-core-service project</description>
+	<properties>
+		<fastjson.version>1.2.43</fastjson.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+	</dependencies>
 </project>

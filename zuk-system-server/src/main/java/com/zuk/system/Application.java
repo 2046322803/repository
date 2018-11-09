@@ -2,7 +2,9 @@ package com.zuk.system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /*
  * @EnableEurekaClient与@EnableDiscoveryClient
@@ -14,7 +16,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @EnableDiscoveryClient基于spring-cloud-commons， 服务采用其他注册中心。
  */
 @EnableEurekaClient
-@SpringBootApplication
+@EntityScan(basePackages = "com.zuk")
+@EnableJpaRepositories(basePackages = "com.zuk")
+@SpringBootApplication(scanBasePackages = "com.zuk")
 public class Application {
 
 	public static void main(String[] args) {

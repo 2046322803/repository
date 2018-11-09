@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 import com.zuk.system.dao.RoleDao;
 import com.zuk.system.dao.UserDao;
 import com.zuk.system.dao.UserRoleDao;
@@ -49,12 +50,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public JSONPObject login(JSONPObject reqMsg) {
+	public JsonObject login(JSONObject reqMsg) {
+		System.out.println("123");
 		return null;
 	}
 
 	@Override
-	public JSONPObject logout(JSONPObject reqMsg) {
+	public JsonObject logout(JSONObject reqMsg) {
 		return null;
 	}
 
