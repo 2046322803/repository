@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonObject;
 import com.zuk.system.service.UserService;
 
 @RestController
@@ -24,7 +23,7 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/login")
-	public JsonObject login(@RequestBody JSONObject reqMsg) {
+	public JSONObject login(@RequestBody JSONObject reqMsg) {
 		return userService.login(reqMsg);
 	}
 
@@ -35,7 +34,7 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/logout")
-	public JsonObject logout(@RequestBody JSONObject reqMsg) {
+	public JSONObject logout(@RequestBody JSONObject reqMsg) {
 		return userService.logout(reqMsg);
 	}
 
@@ -46,7 +45,7 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public JsonObject save(@RequestBody JSONObject reqMsg) {
+	public JSONObject save(@RequestBody JSONObject reqMsg) {
 		return null;
 	}
 

@@ -1,11 +1,15 @@
 package com.zuk.zuul.filter;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.JSONObject;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -54,7 +58,26 @@ public class AccessFilter extends ZuulFilter {
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
 		log.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
-		Object accessToken = request.getParameter("token");
+
+		Object accessToken = null;
+		try {
+			BufferedReader br = request.getReader();
+
+			String str, wholeStr = "";
+			while ((str = br.readLine()) != null) {
+				wholeStr += str;
+			}
+			System.out.println(wholeStr);
+
+			JSONObject jobj = JSONObject.parseObject(wholeStr);
+			System.out.println(jobj.get("userName"));
+			accessToken = jobj.get("accessToken");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// Object accessToken = request.getParameter("accessToken");
 		if (accessToken == null) {
 			log.warn("token is empty");
 			ctx.setSendZuulResponse(false);// 令zuul过滤该请求，不对其进行路由

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonObject;
 import com.zuk.system.dao.RoleDao;
 import com.zuk.system.dao.UserDao;
 import com.zuk.system.dao.UserRoleDao;
@@ -50,13 +49,21 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public JsonObject login(JSONObject reqMsg) {
-		System.out.println("123");
-		return null;
+	public JSONObject login(JSONObject reqMsg) {
+		JSONObject respMsg = new JSONObject();
+		User user = userDao.findByNameAndPassword(reqMsg.getString("userName"), reqMsg.getString("password"));
+		if (user == null) {
+			respMsg.put("code", "1111");
+			respMsg.put("message", "登录失败");
+		} else {
+			respMsg.put("code", "0000");
+			respMsg.put("message", "登录成功");
+		}
+		return respMsg;
 	}
 
 	@Override
-	public JsonObject logout(JSONObject reqMsg) {
+	public JSONObject logout(JSONObject reqMsg) {
 		return null;
 	}
 
