@@ -64,6 +64,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public JSONObject logout(JSONObject reqMsg) {
+		System.out.println("logout");
 		return null;
 	}
 

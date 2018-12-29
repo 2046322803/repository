@@ -50,6 +50,12 @@
 			<artifactId>zuk-rest-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- zuk-scheduler-quartz -->
+		<dependency>
+			<groupId>com.zuk.scheduler.quartz</groupId>
+			<artifactId>zuk-scheduler-quartz-service</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
