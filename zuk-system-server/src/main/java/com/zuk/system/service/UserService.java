@@ -10,4 +10,6 @@ public interface UserService {
 
 	JSONObject logout(JSONObject reqMsg);
 
+	JSONObject save(JSONObject reqMsg);
+	
 }

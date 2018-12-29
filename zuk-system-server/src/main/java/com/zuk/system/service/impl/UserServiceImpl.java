@@ -67,4 +67,15 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
+	@Override
+	public JSONObject save(JSONObject reqMsg) {
+		JSONObject respMsg = new JSONObject();
+		User user = new User();
+		user.setName(reqMsg.getString("userName"));
+		user.setPassword(reqMsg.getString("password"));
+		userDao.save(user);
+
+		return respMsg;
+	}
+
 }
