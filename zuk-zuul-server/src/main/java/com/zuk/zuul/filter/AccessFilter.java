@@ -2,6 +2,9 @@ package com.zuk.zuul.filter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,8 +23,8 @@ public class AccessFilter extends ZuulFilter {
 	private static Logger log = LoggerFactory.getLogger(AccessFilter.class);
 
 	/*
-	 * filterType：过滤器的类型，它决定过滤器在请求的哪个生命周期中执行。在zuul中定义了四种不同生命周期的过滤器类型，具体如下：
-	 * pre：路由之前 routing：路由之时 post： 路由之后 error：发送错误调用
+	 * filterType：过滤器的类型，它决定过滤器在请求的哪个生命周期中执行。在zuul中定义了四种不同生命周期的过滤器类型，具体如下： pre：路由之前
+	 * routing：路由之时 post： 路由之后 error：发送错误调用
 	 */
 	@Override
 	public String filterType() {
@@ -35,7 +38,7 @@ public class AccessFilter extends ZuulFilter {
 	 */
 	@Override
 	public int filterOrder() {
-		return 0;
+		return 1;
 	}
 
 	/*
@@ -88,6 +91,16 @@ public class AccessFilter extends ZuulFilter {
 		}
 		log.info("ok");
 		return null;
+	}
+
+	private static Map<String, String> httpRequestToMap(HttpServletRequest request) {
+		Enumeration<String> headerNames = request.getHeaderNames();
+		Map<String, String> headers = new HashMap<>();
+		while (headerNames.hasMoreElements()) {
+			String headerName = headerNames.nextElement();
+			headers.put(headerName, request.getHeader(headerName));
+		}
+		return headers;
 	}
 
 }
