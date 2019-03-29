@@ -16,5 +16,6 @@
 	<modules>
 		<module>zuk-storage-cos</module>
 		<module>zuk-storage-oss</module>
+		<module>zuk-storage-mongodb</module>
 	</modules>
 </project>
