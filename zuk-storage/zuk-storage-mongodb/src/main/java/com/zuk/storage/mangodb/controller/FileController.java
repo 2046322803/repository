@@ -67,7 +67,7 @@ public class FileController {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws UnsupportedEncodingException 
+	 * @throws UnsupportedEncodingException
 	 */
 	@GetMapping("files/{id}")
 	@ResponseBody
@@ -77,7 +77,8 @@ public class FileController {
 
 		if (file.isPresent()) {
 			return ResponseEntity.ok()
-					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; fileName=" + new String(file.get().getName().getBytes("utf-8"),"ISO-8859-1"))
+					.header(HttpHeaders.CONTENT_DISPOSITION,
+							"attachment; fileName=" + new String(file.get().getName().getBytes("utf-8"), "ISO-8859-1"))
 					.header(HttpHeaders.CONTENT_TYPE, "application/octet-stream")
 					.header(HttpHeaders.CONTENT_LENGTH, file.get().getSize() + "").header("Connection", "close")
 					.body(file.get().getContent().getData());
